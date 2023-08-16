@@ -2,8 +2,8 @@
 
 > ## Caso de sucesso
 
-1. ⛔ Salva os dados na tabela enrollments
-2. ⛔ Retorna id da matricula
+1. ✅ Salva os dados na tabela enrollments
+2. ✅ Retorna id da matricula
 
 ✅
 ⛔
