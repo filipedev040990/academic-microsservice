@@ -4,7 +4,6 @@ export interface CreateEnrollment {
 
 export namespace CreateEnrollment {
   export type Input = {
-    id: string
     identifier: string
     name: string
     email: string
