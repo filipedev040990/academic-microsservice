@@ -5,3 +5,10 @@ export class ServerError extends Error {
     this.stack = error?.stack
   }
 }
+
+export class MissingParamError extends Error {
+  constructor (param: string) {
+    super(`Missing param: ${param}`)
+    this.name = 'MissingParamError'
+  }
+}
