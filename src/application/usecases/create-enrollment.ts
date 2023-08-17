@@ -11,7 +11,8 @@ export class CreateEnrollmentUseCase implements CreateEnrollment {
   async execute (input: CreateEnrollment.Input): Promise<string> {
     return await this.repository.save({
       id: this.uuidGenerator.generate(),
-      ...input
+      ...input,
+      createdAt: new Date()
     })
   }
 }

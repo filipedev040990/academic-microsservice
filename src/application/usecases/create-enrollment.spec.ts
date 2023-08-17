@@ -33,7 +33,7 @@ describe('CreateEnrollmentUseCase', () => {
     await sut.execute(input)
 
     expect(repository.save).toHaveBeenCalledTimes(1)
-    expect(repository.save).toHaveBeenCalledWith({ id: 'anyUuid', ...input })
+    expect(repository.save).toHaveBeenCalledWith({ id: 'anyUuid', ...input, createdAt: new Date() })
   })
 
   test('should return an enrollmentId on success', async () => {

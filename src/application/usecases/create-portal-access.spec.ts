@@ -13,7 +13,7 @@ describe('CreatePortalAccessUseCase', () => {
 
   const sut: CreatePortalAccess = new CreatePortalAccessUseCase(repository, uuidGenerator, hasher)
   const input: CreatePortalAccess.Input = {
-    enrollmentId: 'anyEnrollmentId',
+    enrollment_id: 'anyEnrollmentId',
     login: 'anyLogin',
     password: 'anyPassword',
     active: true
@@ -42,10 +42,11 @@ describe('CreatePortalAccessUseCase', () => {
     expect(repository.save).toHaveBeenCalledTimes(1)
     expect(repository.save).toHaveBeenCalledWith({
       id: 'anyUuid',
-      enrollmentId: 'anyEnrollmentId',
+      enrollment_id: 'anyEnrollmentId',
       login: 'anyLogin',
       password: 'hashedPassword',
-      active: true
+      active: true,
+      createdAt: new Date()
     })
   })
 })

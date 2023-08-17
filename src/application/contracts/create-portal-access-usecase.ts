@@ -4,7 +4,7 @@ export interface CreatePortalAccess {
 
 export namespace CreatePortalAccess {
   export type Input = {
-    enrollmentId: string
+    enrollment_id: string
     login: string
     password: string
     active: boolean

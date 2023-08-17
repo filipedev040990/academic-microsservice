@@ -11,6 +11,7 @@ export namespace EnrollmentRepository {
     document: string
     birthDate: Date
     phoneNumber: string
+    createdAt: Date
   }
 
   export type Output = string

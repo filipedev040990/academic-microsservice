@@ -5,9 +5,10 @@ export interface PortalRepository {
 export namespace PortalRepository {
   export type Input = {
     id: string
-    enrollmentId: string
+    enrollment_id: string
     login: string
     password: string
     active: boolean
+    createdAt: Date
   }
 }

@@ -13,10 +13,11 @@ export class CreatePortalAccessUseCase implements CreatePortalAccess {
   async execute (input: CreatePortalAccess.Input): Promise<void> {
     await this.repository.save({
       id: this.uuidGenerator.generate(),
-      enrollmentId: input.enrollmentId,
+      enrollment_id: input.enrollment_id,
       login: input.login,
       password: await this.hasher.hash(input.password),
-      active: true
+      active: true,
+      createdAt: new Date()
     })
   }
 }
