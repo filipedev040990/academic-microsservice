@@ -15,7 +15,7 @@ export class CreatePortalAccessUseCase implements CreatePortalAccess {
       id: this.uuidGenerator.generate(),
       enrollmentId: input.enrollmentId,
       login: input.login,
-      password: this.hasher.generate(input.password),
+      password: await this.hasher.hash(input.password),
       active: true
     })
   }

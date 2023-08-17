@@ -21,7 +21,7 @@ describe('CreatePortalAccessUseCase', () => {
 
   beforeEach(() => {
     uuidGenerator.generate.mockReturnValue('anyUuid')
-    hasher.generate.mockReturnValue('hashedPassword')
+    hasher.hash.mockResolvedValue('hashedPassword')
   })
 
   test('should call uuidGenerator once', async () => {
@@ -30,10 +30,10 @@ describe('CreatePortalAccessUseCase', () => {
     expect(uuidGenerator.generate).toHaveBeenCalledTimes(1)
   })
 
-  test('should call Hasher.generate once and with correct password', async () => {
+  test('should call hasher.hash once and with correct password', async () => {
     await sut.execute(input)
 
-    expect(hasher.generate).toHaveBeenCalledTimes(1)
+    expect(hasher.hash).toHaveBeenCalledTimes(1)
   })
 
   test('should call EnrollmentRepository once and with correct values', async () => {
