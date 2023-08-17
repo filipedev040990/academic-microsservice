@@ -6,6 +6,51 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
   url      = env("DATABASE_URL")
+}
+
+model Enrollment {
+  id           String         @id
+  identifier   String
+  name         String
+  email        String
+  document     String
+  birthDate    DateTime
+  phoneNumber  String
+  createdAt    DateTime
+  PortalAccess PortalAccess[]
+
+  @@map("enrollments")
+}
+
+model PortalAccess {
+  id            String     @id
+  enrollment    Enrollment @relation(fields: [enrollment_id], references: [id])
+  enrollment_id String
+  login         String
+  password      String
+  active        Boolean
+  createdAt     DateTime
+
+  @@map("portal_access")
+}
+
+model QueueConsumed {
+  id                String   @id
+  queueName         String
+  messageIdentifier String
+  data              String   @db.LongText()
+  createdAt         DateTime
+
+  @@map("queue_consumed")
+}
+
+model SendNotification {
+  id                String   @id
+  messageIdentifier String
+  data              String   @db.LongText()
+  createdAt         DateTime
+
+  @@map("sent_notifications")
 }
