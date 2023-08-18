@@ -1,8 +1,8 @@
-export interface NotificationRepository {
-  save: (input: NotificationRepository.Input) => Promise<void>
+export interface NotificationRepositoryInterface {
+  save: (input: NotificationRepositoryInterface.Input) => Promise<void>
 }
 
-export namespace NotificationRepository {
+export namespace NotificationRepositoryInterface {
   export type Input = {
     id: string
     messageIdentifier: string

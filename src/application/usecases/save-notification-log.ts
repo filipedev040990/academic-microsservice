@@ -1,10 +1,10 @@
-import { NotificationRepository } from '../contracts/notification-repository'
+import { NotificationRepositoryInterface } from '../contracts/notification-repository'
 import { SaveNotificationLog } from '../contracts/save-notification-log-usecase'
 import { UuidGenerator } from '../contracts/uuid-generator'
 
 export class SaveNotificationLogUseCase implements SaveNotificationLog {
   constructor (
-    private readonly repository: NotificationRepository,
+    private readonly repository: NotificationRepositoryInterface,
     private readonly uuidGenerator: UuidGenerator
   ) {}
 
