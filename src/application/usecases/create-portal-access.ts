@@ -16,7 +16,7 @@ export class CreatePortalAccessUseCase implements CreatePortalAccess {
       enrollment_id: input.enrollment_id,
       login: input.login,
       password: await this.hasher.hash(input.password),
-      active: true,
+      active: input.active,
       createdAt: new Date()
     })
   }

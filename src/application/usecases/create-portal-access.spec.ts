@@ -3,8 +3,9 @@ import { UuidGenerator } from '../contracts/uuid-generator'
 import { CreatePortalAccessUseCase } from './create-portal-access'
 import { PortalRepository } from '../contracts/portal-repository'
 import { CreatePortalAccess } from '../contracts/create-portal-access-usecase'
-import { mock } from 'jest-mock-extended'
 import { Hasher } from '../contracts/hasher'
+import { mock } from 'jest-mock-extended'
+import MockDate from 'mockdate'
 
 describe('CreatePortalAccessUseCase', () => {
   const repository = mock<PortalRepository>()
@@ -22,6 +23,14 @@ describe('CreatePortalAccessUseCase', () => {
   beforeEach(() => {
     uuidGenerator.generate.mockReturnValue('anyUuid')
     hasher.hash.mockResolvedValue('hashedPassword')
+  })
+
+  beforeAll(() => {
+    MockDate.set(new Date())
+  })
+
+  afterAll(() => {
+    MockDate.reset()
   })
 
   test('should call uuidGenerator once', async () => {
